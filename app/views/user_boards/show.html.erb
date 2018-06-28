@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_board.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user_board.email %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @user_board.question %>
+</p>
+
+<div id="answers_wrapper">
+  <%= render @user_board.answers %>
+</div>
+<%= link_to 'Edit', edit_user_board_path(@user_board) %> |
+<%= link_to 'Back', user_boards_path %>
