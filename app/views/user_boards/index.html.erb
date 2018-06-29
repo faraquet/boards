@@ -1,29 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<h1>User Boards</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Question</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_boards.each do |user_board| %>
-      <tr>
-        <td><%= user_board.name %></td>
-        <td><%= user_board.email %></td>
-        <td><%= user_board.question %></td>
-        <td><%= link_to 'Show', user_board %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User Board', new_user_board_path %>
+<% @user_boards.each do |user_board| %>
+  <div class="index_row clearfix">
+    <p class="user_board_name"><%= user_board.name %></p>
+    <p class="user_board_email"><%= user_board.email %></p>
+    <p class="user_board_question"><%= user_board.question %></p>
+    <%= link_to 'show', user_board, {class: 'show_links'} %>
+  </div>
+<% end %>
