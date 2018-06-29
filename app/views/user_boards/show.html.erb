@@ -20,5 +20,5 @@
     <%= render "answers/form" %>
   </div>
 </div>
-<%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Back', user_boards_path %>
+<%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'}, class: 'links' %>
+<%= link_to 'Back', user_boards_path, class: 'links' %>
