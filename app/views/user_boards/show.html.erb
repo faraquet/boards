@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @user_board.name %>
-</p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'}, class: 'links' %>
+  <%= link_to 'Back', user_boards_path, class: 'links' %>
+  <p>
+    <strong>Name:</strong>
+    <%= @user_board.name %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user_board.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user_board.email %>
+  </p>
 
-<p>
-  <strong>Question:</strong>
-  <%= @user_board.question %>
-</p>
+  <p>
+    <strong>Question:</strong>
+    <%= @user_board.question %>
+  </p>
 
-<div id="answers_wrapper">
-  <%= render @user_board.answers %>
-  <div id="form">
-    <%= render "answers/form" %>
+  <div id="answers_wrapper">
+    <%= render @user_board.answers.reverse %>
+    <div id="form">
+      <%= render "answers/form" %>
+    </div>
   </div>
 </div>
-<%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'}, class: 'links' %>
-<%= link_to 'Back', user_boards_path, class: 'links' %>

@@ -6,5 +6,13 @@ Rails.application.routes.draw do
       patch :complete
     end
   end
-  root "user_boards#index"
+
+  unauthenticated do
+    root to: 'user_boards#new'
+  end
+
+  authenticated do
+    root to: 'user_boards#index'
+  end
+
 end

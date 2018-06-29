@@ -26,11 +26,7 @@ html {
 
 body {
   height: 100%;
-  background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background: -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background: -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background: -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-  background: linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background-color: #4CB8C0;
   font-family: 'Lato', sans-serif;
 }
 
@@ -52,7 +48,17 @@ body {
 }
 
 .container {
-  width: 75%;
+  width: 90%;
+  background: $white_opaque;
+  margin: 3em auto 0 auto;
+  border-radius: 7px;
+  -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
+  padding: 1em 0;
+}
+
+.login_bar {
+  width: 10%;
   background: $white_opaque;
   margin: 3em auto 0 auto;
   border-radius: 7px;
@@ -111,7 +117,7 @@ body {
 
 .index_row {
   padding: 2em;
-  border-bottom: 1px solid rgba(250, 250, 250, .3);
+  //border-bottom: 1px solid rgba(250, 250, 250, .3);
   .user_board_email {
     margin-bottom: 0;
   }
@@ -195,7 +201,7 @@ body {
 
 .show_links {
   display: block;
-  margin: 1em auto 0 auto;
+  margin: 2em auto 0 auto;
   text-align: left;
   font-size: 1em;
   color: white;
@@ -206,8 +212,8 @@ body {
 
 .links {
   display: block;
-  margin: 1.5em auto 0 auto;
-  text-align: center;
+  margin: 1.5em 1em 0 1em;
+  text-align: left;
   font-size: 0.8em;
   color: white;
   a {
@@ -224,8 +230,32 @@ label {
 }
 
 input[type="text"], textarea {
-  width: 100%;
-  margin: .5em 2% 1em 0;
+  width: 90%;
+  margin: .5em 2% 1em 1em;
+  display: inline-block;
+  outline: none;
+  background: rgba(250, 250, 250, .4);
+  border: none;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1em 2em;
+}
+
+input[type="email"], textarea {
+  width: 94%;
+  margin: .5em 2% 3% 3%;
+  display: inline-block;
+  outline: none;
+  background: rgba(250, 250, 250, .4);
+  border: none;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1em 2em;
+}
+
+input[type="password"], textarea {
+  width: 94%;
+  margin: .5em 2% 3% 3%;
   display: inline-block;
   outline: none;
   background: rgba(250, 250, 250, .4);
@@ -240,12 +270,14 @@ textarea {
 }
 
 input[type="submit"] {
+  margin: .5em 2% 3% 3%;
   background: white;
   outline: none;
   border: none;
   height: 40px;
   border-radius: 4px;
   width: 25%;
+  alignment: center;
   display: inline-block;
   transition: all .4s ease-in-out;
   cursor: pointer;

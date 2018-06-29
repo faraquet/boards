@@ -1,5 +1,10 @@
 <h1>New User Board</h1>
-
-<%= render 'form', user_board: @user_board %>
+<div class="login_bar">
+  <%= link_to 'Sign Up', new_admin_registration_path, class: 'links' %>
+  <%= link_to 'Login', new_admin_session_path, class: 'links' %>
+</div>
+<div class="container">
+  <%= render 'form', user_board: @user_board %>
+</div>
 
 <%= link_to 'Back', user_boards_path %>

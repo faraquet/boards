@@ -1,9 +1,14 @@
+<div class="login_bar">
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "links" %>
+</div>
 <p id="notice"><%= notice %></p>
 <% @user_boards.each do |user_board| %>
-  <div class="index_row clearfix">
-    <p class="user_board_name"><%= user_board.name %></p>
-    <p class="user_board_email"><%= user_board.email %></p>
-    <p class="user_board_question"><%= user_board.question %></p>
-    <%= link_to 'show', user_board, {class: 'show_links'} %>
+  <div class="container">
+    <div class="index_row clearfix">
+      <p class="user_board_name"><%= user_board.name %></p>
+      <p class="user_board_email"><%= user_board.email %></p>
+      <p class="user_board_question"><%= user_board.question %></p>
+      <%= link_to 'show', user_board, {class: 'show_links'} %>
+    </div>
   </div>
 <% end %>
