@@ -162,6 +162,17 @@ body {
       border-radius: 4px;
       padding: 1em 2em;
     }
+    input[type="password"] {
+      width: 72%;
+      margin-right: 2%;
+      display: inline-block;
+      outline: none;
+      background: rgba(250, 250, 250, .4);
+      border: none;
+      height: 40px;
+      border-radius: 4px;
+      padding: 1em 2em;
+    }
     input[type="submit"] {
       background: rgba(250, 250, 250, .4);
       outline: none;
