@@ -1,26 +1,24 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'}, class: 'links' %>
-  <%= link_to 'Back', user_boards_path, class: 'links' %>
-  <p>
-    <strong>Name:</strong>
-    <%= @user_board.name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= @user_board.email %>
-  </p>
-
-  <p>
-    <strong>Question:</strong>
-    <%= @user_board.question %>
-  </p>
-
-  <div id="answers_wrapper">
-    <%= render @user_board.answers.reverse %>
-    <div id="form">
-      <%= render "answers/form" %>
+  <div class="links_bar">
+    <%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'}, class: 'links' %>
+    <%= link_to 'Back', root_path, class: 'links' %>
+  </div>
+  <div class="nested_container">
+    <div class="index_row clearfix">
+      <p class="user_board_email"><%= @user_board.created_at %></p>
+      <br/>
+      <p class="user_board_name"><%= @user_board.name %></p>
+      <p class="user_board_email"><%= @user_board.email %></p>
+      <p class="user_board_question"><%= @user_board.question %></p>
     </div>
+  </div>
+  <div id="answers_wrapper">
+    <%= render @user_board.answers %>
+    <% if admin_signed_in? %>
+      <div id="form">
+        <%= render "answers/form" %>
+      </div>
+    <% end %>
   </div>
 </div>

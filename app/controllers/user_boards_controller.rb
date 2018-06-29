@@ -1,8 +1,8 @@
 class UserBoardsController < ApplicationController
   before_action :set_user_board, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, only: [:index, :edit, :update, :destroy]
   def index
-    @user_boards = UserBoard.all
+    @user_boards = UserBoard.uncompleted
   end
 
   def show
@@ -19,7 +19,7 @@ class UserBoardsController < ApplicationController
     @user_board = UserBoard.new(user_board_params)
 
     if @user_board.save
-      redirect_to @user_board, notice: 'User board was successfully created.'
+      redirect_to @user_board, notice: "User board was successfully created. Board id: #{@user_board.id}"
     else
       render :new
     end
@@ -27,7 +27,7 @@ class UserBoardsController < ApplicationController
 
   def update
     @user_board.update_attribute(:completed_at, Time.now)
-    redirect_to :root, notice: 'User board was successfully completed.'
+    redirect_to :root, notice: "User board #{@user_board.id} was successfully completed."
   end
 
   def destroy
