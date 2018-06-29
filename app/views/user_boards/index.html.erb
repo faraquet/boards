@@ -19,8 +19,6 @@
         <td><%= user_board.email %></td>
         <td><%= user_board.question %></td>
         <td><%= link_to 'Show', user_board %></td>
-        <td><%= link_to 'Edit', edit_user_board_path(user_board) %></td>
-        <td><%= link_to 'Destroy', user_board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

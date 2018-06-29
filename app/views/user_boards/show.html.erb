@@ -17,6 +17,9 @@
 
 <div id="answers_wrapper">
   <%= render @user_board.answers %>
+  <div id="form">
+    <%= render "answers/form" %>
+  </div>
 </div>
-<%= link_to 'Edit', edit_user_board_path(@user_board) %> |
+<%= link_to 'Complete', @user_board, method: :patch, data: {confirm: 'Are you sure?'} %>
 <%= link_to 'Back', user_boards_path %>
