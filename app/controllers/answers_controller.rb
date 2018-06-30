@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   def create
     @answer = @user_board.answers.new(answer_params.merge(admin_email: current_admin.email))
     if @answer.save
-      BoardMailer.answer_email(@user_board, @answer)
+      AnswerMailer.send_answer_email(@user_board, @answer.content)
       redirect_to @user_board
     end
   end
