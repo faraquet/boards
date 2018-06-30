@@ -67,16 +67,6 @@ body {
   padding: 1em 0;
 }
 
-.links_bar {
-  width: 10%;
-  background: $white_opaque;
-  margin: .3em 5% 0 auto;
-  border-radius: 7px;
-  -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, .3);
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, .03);
-  padding: 1em 0;
-}
-
 .user_board_name {
   margin: 0 0 0 0;
   text-align: left;
@@ -94,20 +84,11 @@ body {
 }
 
 .user_board_question {
+  margin: 3em 0 3em 0;
   text-align: left;
-  font-weight: 500;
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: white;
-  //margin: 0;
-  a {
-    text-decoration: none;
-    color: white;
-    transition: all .4s ease-in-out;
-    &:hover {
-      opacity: 0.4;
-    }
-  }
+  font-size: 0.9em;
+  color: $dark;
+  font-weight: 100;
 }
 
 .user_board_show {
@@ -211,7 +192,7 @@ body {
 
 .links {
   display: block;
-  margin: .5em .5em .5em 2em;
+  margin: .1em .1em .1em 1em;
   text-align: left;
   font-size: 0.8em;
   color: white;
@@ -226,10 +207,19 @@ body {
 
 label {
   color: $dark;
+  margin: .5em 0 3% 3%;
+}
+
+.new_board_field {
+  margin: 0 0 0 1em;
+}
+
+.new_board_label {
+  margin: .5em 0 0% 1.5%;
 }
 
 input[type="text"], textarea {
-  width: 90%;
+  width: 95%;
   margin: .5em 2% 1em 1em;
   display: inline-block;
   outline: none;
@@ -253,7 +243,7 @@ input[type="email"], textarea {
 }
 
 input[type="password"], textarea {
-  width: 94%;
+  width: 93%;
   margin: .5em 2% 3% 3%;
   display: inline-block;
   outline: none;
@@ -266,6 +256,10 @@ input[type="password"], textarea {
 
 textarea {
   height: 200px;
+}
+
+input[type="checkbox"] {
+  margin: 0% 0 0 3%;
 }
 
 input[type="submit"] {
@@ -285,6 +279,40 @@ input[type="submit"] {
     background: $dark;
     color: white;
   }
+}
+
+h2 {
+  margin: .5em 2% 3% 3%;
+  color: $dark;
+}
+
+h3 {
+  margin: .5em 2% 3% 3%;
+  color: $dark;
+}
+li {
+  color: $dark;
+}
+
+.remember {
+  margin: 0 0 0 0;
+}
+
+input.complete_button {
+  background: #009966;
+  outline: none;
+  border: none;
+  height: 40px;
+  color: #CCCCCC;
+  border-radius: 4px;
+  width: 25%;
+  display: inline-block;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+  margin-left: 7em;
+  &:hover {
+  background: $dark;
+}
 }
 
 ::-webkit-input-placeholder {

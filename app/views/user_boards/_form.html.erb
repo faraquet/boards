@@ -10,15 +10,13 @@
       </ul>
     </div>
   <% end %>
-  <p class="user_board_name">New User Board</p>
-  <br/>
-  <div class="field">
-    <%= form.label :name %>
+  <div class="new_board_field">
+    <%= form.label :name, class: 'new_board_label' %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
+  <div class="new_board_field">
+    <%= form.label :email, class: 'new_board_label' %>
     <%= form.text_field :email %>
   </div>
 
