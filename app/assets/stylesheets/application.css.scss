@@ -291,6 +291,7 @@ h3 {
   margin: .5em 2% 3% 3%;
   color: $dark;
 }
+
 li {
   color: $dark;
 }
@@ -310,10 +311,27 @@ input.complete_button {
   display: inline-block;
   transition: all .4s ease-in-out;
   cursor: pointer;
-  margin-left: 7em;
+  margin-left: 3em;
   &:hover {
-  background: $dark;
+    background: $dark;
+  }
 }
+
+input.mail_button {
+  background: #00CC99;
+  outline: none;
+  border: none;
+  height: 40px;
+  color: #F7F7F7;
+  border-radius: 4px;
+  width: 25%;
+  display: inline-block;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+  margin-left: 3em;
+  &:hover {
+    background: $dark;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -326,6 +344,7 @@ input.complete_button {
   src: url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
   src: url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -338,6 +357,7 @@ input.complete_button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .glyphicon-send:before {
   content: "\e171";
 }

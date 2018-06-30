@@ -9,10 +9,5 @@ class UserBoard < ApplicationRecord
     name = super
     name.presence || 'Anonymous'
   end
-
-  # def valid_email
-  #   (email =~ URI::MailTo::EMAIL_REGEXP).present?
-  # end
-
-
+  
 end

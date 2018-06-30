@@ -28,7 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'dotenv', '~> 2.1', '>= 2.1.1'
-
+gem 'sidekiq'
+gem 'letter_opener'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

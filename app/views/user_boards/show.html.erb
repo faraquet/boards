@@ -9,7 +9,9 @@
     <p class="user_board_name"><%= @user_board.name %></p>
     <% if @user_board.email.present? %>
       <p class="user_board_email"><%= @user_board.email %><span class="glyphicon glyphicon-send"></span></p>
-    <% end %>    <p class="user_board_question"><%= @user_board.question %></p>
+      <%= mail_to @user_board.email, "Send Mail", class: 'show_links' %>
+    <% end %>
+    <p class="user_board_question"><%= @user_board.question %></p>
   </div>
   <% if admin_signed_in? %>
     <%= button_to "Complete", @user_board, method: :patch, data: {confirm: 'Are you sure?'}, class: 'complete_button' %>

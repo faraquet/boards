@@ -1,6 +1,7 @@
 class UserBoardsController < ApplicationController
   before_action :set_user_board, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:index, :edit, :update, :destroy]
+
   def index
     @user_boards = UserBoard.uncompleted
   end
@@ -19,6 +20,7 @@ class UserBoardsController < ApplicationController
     @user_board = UserBoard.new(user_board_params)
 
     if @user_board.save
+      BoardMailer.send_board_email(@user_board)
       redirect_to @user_board, notice: "User board was successfully created. Board id: #{@user_board.id}"
     else
       render :new
@@ -27,6 +29,7 @@ class UserBoardsController < ApplicationController
 
   def update
     @user_board.update_attribute(:completed_at, Time.now)
+    BoardMailer.send_board_complete_email(@user_board, current_admin.email)
     redirect_to :root, notice: "User board #{@user_board.id} was successfully completed."
   end
 
@@ -36,11 +39,12 @@ class UserBoardsController < ApplicationController
   end
 
   private
-    def set_user_board
-      @user_board = UserBoard.find(params[:id])
-    end
 
-    def user_board_params
-      params.require(:user_board).permit(:name, :email, :question)
-    end
+  def set_user_board
+    @user_board = UserBoard.find(params[:id])
+  end
+
+  def user_board_params
+    params.require(:user_board).permit(:name, :email, :question)
+  end
 end

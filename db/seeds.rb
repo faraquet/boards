@@ -3,6 +3,7 @@ UserBoard.destroy_all
 Admin.destroy_all
 
 Admin.create! email: 'admin@admin.com', password: 'topsecret', password_confirmation: 'topsecret'
+Admin.create! email: 'second_admin@admin.com', password: 'topsecret', password_confirmation: 'topsecret'
 
 first_names = %w(Andy Max John George Oliver Jack)
 last_names  = %w(Smith Hill Adams Baker Davis Bowie)

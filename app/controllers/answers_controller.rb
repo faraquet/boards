@@ -3,8 +3,11 @@ class AnswersController < ApplicationController
   before_action :authenticate_admin!
 
   def create
-    @answers = @user_board.answers.create(answer_params.merge(admin_email: current_admin.email))
-    redirect_to @user_board
+    @answer = @user_board.answers.new(answer_params.merge(admin_email: current_admin.email))
+    if @answer.save
+      BoardMailer.answer_email(@user_board, @answer)
+      redirect_to @user_board
+    end
   end
 
   private
