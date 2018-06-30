@@ -1,16 +1,18 @@
+<div class="nested_container">
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "links" %>
+</div>
+<p id="notice"><%= notice %></p>
+<% @user_boards.each do |user_board| %>
   <div class="nested_container">
-    <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "links" %>
-  </div>
-  <p id="notice"><%= notice %></p>
-  <% @user_boards.each do |user_board| %>
-    <div class="nested_container">
-      <div class="index_row clearfix">
-        <p class="user_board_email"><%= "#{user_board.id}: #{user_board.created_at}" %></p>
-        <br/>
-        <p class="user_board_name"><%= user_board.name %></p>
-        <p class="user_board_email"><%= user_board.email %></p>
-        <p class="user_board_question"><%= user_board.question %></p>
-        <%= link_to 'Show', user_board, class: 'show_links' %>
-      </div>
+    <div class="index_row clearfix">
+      <p class="user_board_email"><%= "#{user_board.id}: #{user_board.created_at}" %></p>
+      <br/>
+      <p class="user_board_name"><%= user_board.name %></p>
+      <% if user_board.email.present? %>
+        <p class="user_board_email"><%= user_board.email %><span class="glyphicon glyphicon-send"></span></p>
+      <% end %>
+      <p class="user_board_question"><%= user_board.question %></p>
+      <%= link_to 'Show', user_board, class: 'show_links' %>
     </div>
-  <% end %>
+  </div>
+<% end %>

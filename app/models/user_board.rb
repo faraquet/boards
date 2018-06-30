@@ -1,6 +1,7 @@
 class UserBoard < ApplicationRecord
   scope :uncompleted, -> { where(completed_at: nil) }
   validates :question, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 
   has_many :answers
 
@@ -8,4 +9,10 @@ class UserBoard < ApplicationRecord
     name = super
     name.presence || 'Anonymous'
   end
+
+  # def valid_email
+  #   (email =~ URI::MailTo::EMAIL_REGEXP).present?
+  # end
+
+
 end
