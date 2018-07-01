@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Конфигурация
 
-Things you may want to cover:
+Для хранение credentials используется гем dotenv. Для работы, в корне проекта необходимо создать файл .env:
 
-* Ruby version
+```
+POSTGRES_USER=USERNAME
+POSTGRES_PASSWORD=PASSWORD
+DEVISE_SECRET=SECRET
+```
+В USERNAME и PASSWORD необходимо указать имя пользователя и пароль для подключения к БД.
+В SECRET необходимо указать Devise Secret Key (например: 5cf389e4883ed2a3d05107ed7701bf01fb67bb3f0db3a00e0d260a8328f1e3cbba78b2ec5c0da3df8a9c338cf88979969cd3a2908d2ead571a942850de970e59)
+#### Запуск
 
-* System dependencies
+```
+bundle
+rake db:create
+rake db:migrate
+rake db:seed
+sidekiq
+rails s
+```
+Аккаунт администратора в seed - email: 'admin@admin.com', password: 'topsecret'
+#### Основные возможности:
 
-* Configuration
+##### Для пользователя
+Авторизация не нужна.
+По умолчанию неавторизированный пользователь попадает на страницу создания вопроса.
 
-* Database creation
+Может оставить оставить анонимный отзыв.
+Если же это вопрос и пользователь хочет получить ответ, то он должен оставить свой email (валидируется).
+После создания вопроса происходит рассылка всем администраторам и самому пользователю, в том случае если он оставил email.
 
-* Database initialization
+##### Для администратора
+По умолчанию администратор попадает на страницу со списком всех незакрытых вопросов.
+После перехода на страницу вопроса ("Show"), администратор может:
 
-* How to run the test suite
+- Закрыть вопрос ("Complete"). В этом случае всем администраторам и пользователю (если он оставлял email) приходит письмо о закрытии вопроса. Администратор перенаправится на главную страницу.
+- Ответить на вопрос ("Create answer"). На странице появится его ответ. Пользователю (если он оставлял email) приходит письмо о новом ответе.
+- Ответить с помощью письма ("Send Mail").
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Используемые технологии:
 
-* Deployment instructions
+- Ruby 2.5.1
 
-* ...
+- Ruby on Rails 5.2.0
+
+- PostgreSQL
+
+- Для аутентификации Devise.
+
+- Для тестирования Rspec, FactoryBot.
+
+- Бэкенд очередей sidekiq (необходим Redis).
+
+- Для предварительного просмотра почты в браузере используется Letter Opener.
