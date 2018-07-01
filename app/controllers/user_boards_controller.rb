@@ -13,9 +13,6 @@ class UserBoardsController < ApplicationController
     @user_board = UserBoard.new
   end
 
-  def edit
-  end
-
   def create
     @user_board = UserBoard.new(user_board_params)
 

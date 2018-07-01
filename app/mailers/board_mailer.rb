@@ -1,5 +1,5 @@
 class BoardMailer < ActionMailer::Base
-  default from: "noreply@boards.com"
+  default from: 'noreply@boards.com'
   layout 'mailer'
 
   class << self
