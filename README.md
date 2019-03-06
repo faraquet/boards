@@ -1,3 +1,5 @@
+# Old test task. Forget it.
+
 # README
 
 #### Конфигурация
